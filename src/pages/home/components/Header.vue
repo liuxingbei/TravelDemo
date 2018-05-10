@@ -9,13 +9,18 @@
 
         </div>
         <div class="header-right">
-            城市<span class="iconfont icon-jiantou arrow-icon"></span>
+            {{city}}<span class="iconfont icon-jiantou arrow-icon"></span>
         </div>
     </div>
 </template>
 <script>
     export default{
-        name:'Header'
+        name:'Header',
+        props:{
+            city:{
+                type:String
+            }
+        }
     }
 </script>
 <style lang="scss" scoped>

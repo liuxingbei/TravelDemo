@@ -1,14 +1,14 @@
 <template>
     <div class="wrapper">
-        <swiper :options="swiperOption">
+        <swiper :options="swiperOption" v-if="showSwiper">
             <!-- slides -->
-            <swiper-slide v-for="item of swiperList" :key="item.id">
-                <img :src="item.url" alt="">
-            </swiper-slide>            
+            <swiper-slide v-for="item of list" :key="item.id">
+                <img :src="item.imgUrl" alt="">
+            </swiper-slide>
 
             <!-- Optional controls -->
             <div class="swiper-pagination" slot="pagination"></div>
-            
+
 
         </swiper>
     </div>
@@ -22,25 +22,20 @@
             return {
                 swiperOption: {
                     pagination: '.swiper-pagination',
-                    loop:true,
-                    autoplay:3000
+                    loop: true,
+                    autoplay: 3000
 
-                },
-                swiperList:[
-                    {
-                        id:0,
-                        url:'http://img1.qunarzz.com/piao/fusion/1805/77/f63bd04dd5319602.jpg_750x200_6ba8e0ca.jpg'
-                    },
-                    {
-                        id:1,
-                        url:'http://img1.qunarzz.com/piao/fusion/1804/bd/8e4a1c3f470d3702.jpg_750x200_f1f0a8c7.jpg'
-                    },
-                    {
-                        id:2,
-                        url:'http://img1.qunarzz.com/piao/fusion/1801/bd/04554e7c67650302.jpg_750x200_4293d60a.jpg'
-                    }
-                ]
+                }
             }
+        },
+        props: {
+            list: Array
+        },
+        computed: {
+            showSwiper() {
+                return this.list.length;
+            }
+
         }
     }
 </script>
@@ -58,7 +53,7 @@
     }
 </style>
 <style>
-    .swiper-pagination-bullet-active{
-        background:#fff;
+    .swiper-pagination-bullet-active {
+        background: #fff;
     }
 </style>
