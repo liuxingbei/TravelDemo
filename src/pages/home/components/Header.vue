@@ -8,9 +8,12 @@
             搜索旅行地/酒店/景点
 
         </div>
-        <div class="header-right">
-            {{city}}<span class="iconfont icon-jiantou arrow-icon"></span>
-        </div>
+         <router-link to="/city">
+            <div class="header-right">
+                    {{city}}<span class="iconfont icon-jiantou arrow-icon"></span> 
+            </div>
+        </router-link>
+        
     </div>
 </template>
 <script>
@@ -50,7 +53,6 @@
             margin-top:.12rem;
             margin-left:.2rem;
             padding-left:.2rem;
-            /* border:1px solid #ddd; */
             border-radius: .1rem;
 
         }
@@ -59,6 +61,7 @@
             padding: 0 .1rem;
             float: right;
             text-align:center;
+            color:#fff;
             .arrow-icon{
                 font-size: .24rem;
             }
