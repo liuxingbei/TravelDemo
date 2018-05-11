@@ -6,23 +6,21 @@
         <div class="header-input">
             <span class="iconfont icon-sousuo"></span>
             搜索旅行地/酒店/景点
-
         </div>
          <router-link to="/city">
             <div class="header-right">
-                    {{city}}<span class="iconfont icon-jiantou arrow-icon"></span> 
+                    {{this.city}}<span class="iconfont icon-jiantou arrow-icon"></span> 
             </div>
         </router-link>
         
     </div>
 </template>
 <script>
+    import {mapState} from 'vuex'
     export default{
         name:'Header',
-        props:{
-            city:{
-                type:String
-            }
+        computed:{
+            ...mapState(['city'])
         }
     }
 </script>
@@ -57,7 +55,7 @@
 
         }
         .header-right{
-            width:1.04rem;
+            min-width:1.04rem;
             padding: 0 .1rem;
             float: right;
             text-align:center;
